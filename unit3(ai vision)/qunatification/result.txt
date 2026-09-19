@@ -1,0 +1,10 @@
+
+| Métrique / Pipeline          | Standard PyTorch FP32 | TensorRT FP16      | TensorRT INT8 Quantized |
+|------------------------------|-----------------------|--------------------|-------------------------|
+| 1. Memcpy (Host to Device)   | 0.85 ms               | 0.85 ms            | 0.85 ms                 |
+| 2. Inference (Hidden Layers) | 18.40 ms              | 4.10 ms            | 1.25 ms                 |
+| 3. NMS + Decoding Post-Proc  | 2.10 ms               | 1.50 ms            | 1.10 ms                 |
+| 4. Memcpy (Device to Host)   | 0.15 ms               | 0.15 ms            | 0.15 ms                 |
+|------------------------------|-----------------------|--------------------|-------------------------|
+| Latence Totale (End-to-End)  | 21.50 ms              | 6.60 ms            | 3.35 ms                 |
+| Débit Théorique (Throughput)  | ~46 FPS              | ~151 FPS           | ~298 FPS                |
